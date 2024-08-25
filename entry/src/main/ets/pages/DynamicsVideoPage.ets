@@ -1,5 +1,5 @@
 import { VideoData } from '../bean/VideoData'
-import { getNVideo, replaceBuilderVideo } from '../uinode/VideoNode'
+import { getNVideo, replaceBuilderVideo, updateBuilderVideo } from '../uinode/VideoNode'
 import { systemDateTime } from '@kit.BasicServicesKit'
 import { common } from '@kit.AbilityKit'
 import { NodeUtils } from '../uinode/NodeUtils'
@@ -35,11 +35,12 @@ export struct DynamicsVideoPage {
             this.index++
             let data: VideoData = new VideoData(this.videoSrc, undefined, systemDateTime.getTime(), this.index % 2)
             replaceBuilderVideo(data, this.getUIContext())
+            //updateBuilderVideo(data)
           })
           .margin(20)
           .width('100%')
 
-        TextComponent({msg1:this.startTime,msg2: this.playTime,msg3:(this.playTime-this.startTime)})
+        TextComponent({ msg1: this.startTime, msg2: this.playTime, msg3: (this.playTime - this.startTime) })
       }
       .width('100%')
       .height('100%')

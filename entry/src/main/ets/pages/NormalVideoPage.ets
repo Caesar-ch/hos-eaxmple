@@ -42,6 +42,7 @@ export struct NormalVideoPage {
             if (event) {
               this.durationTime = event.duration
             }
+            console.debug(TAG, "onPrepared：" + event.duration)
           })
           .onSeeking((event) => {
             if (event) {

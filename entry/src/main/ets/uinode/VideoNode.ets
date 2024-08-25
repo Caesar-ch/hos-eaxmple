@@ -31,6 +31,14 @@ export function videoBuilder(params: VideoData) {
       params.startTime = systemDateTime.getTime()
       getContext().eventHub.emit(NodeUtils.STARTTIME, systemDateTime.getTime())
     })
+    .onPrepared((event)=>{
+      if(params.startTime!=0){
+        params.controller.start()
+        console.debug(TAG, "onPrepared：" + event.duration)
+      }
+
+    })
+
 
 }
 
@@ -85,6 +93,12 @@ export class VideoNode extends NodeController {
     // rebuild方法会重新调用makeNode方法
     this.rebuild();
   }
+
+  update(data: VideoData){
+    this.rootNode?.recycle()
+     this.dispose()
+    this.rootNode?.update(data)
+  }
 }
 
 
@@ -112,6 +126,13 @@ export function replaceBuilderVideo(data: VideoData, uiContext?: UIContext) {
     createNVideo(data, uiContext)
   }
 
+}
+
+
+export function updateBuilderVideo(data: VideoData) {
+  if (NodeUtils.nodeMap.has(NodeUtils.VIDEO)) {
+    (NodeUtils.nodeMap.get(NodeUtils.VIDEO) as VideoNode).update(data)
+  }
 }
 
 

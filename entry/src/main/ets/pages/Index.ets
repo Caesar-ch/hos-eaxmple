@@ -18,7 +18,7 @@ struct Index {
 
   private src = "https://developer.huawei.com/consumer/cn/"
   private videoSrc: Resource[] = [$rawfile('a1.mp4'), $rawfile('a3.mp4')]
-  data:VideoData = new VideoData(this.videoSrc,undefined,systemDateTime.getTime(),0)
+  data:VideoData = new VideoData(this.videoSrc,undefined,0,0)
   @Builder
   PagesMap(name: string) {
     if (name == 'NormalWebPage') {

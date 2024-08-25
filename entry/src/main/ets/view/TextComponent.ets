@@ -10,6 +10,9 @@ export struct TextComponent {
 
       Text("onAppear时间：" + this.msg1)
         .fontSize(16)
+        .onAppear(()=>{
+          console.debug("Text","onAppear")
+        })
 
 
       Text("开始播放时间：" + this.msg2)
