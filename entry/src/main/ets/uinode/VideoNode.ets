@@ -95,8 +95,7 @@ export class VideoNode extends NodeController {
   }
 
   update(data: VideoData){
-    this.rootNode?.recycle()
-     this.dispose()
+
     this.rootNode?.update(data)
   }
 }
