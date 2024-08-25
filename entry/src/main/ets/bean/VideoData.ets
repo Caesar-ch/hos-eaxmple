@@ -2,6 +2,7 @@
 
 
 
+const controller =new VideoController()
 
 export class VideoData {
   constructor(videoSrc?: Resource[], url?: string, startTime?: number,index?:number) {
@@ -17,7 +18,7 @@ export class VideoData {
   videoUrl?: string = ""
   videoSrc?: Resource[] = []
 
-  controller: VideoController = new VideoController()
+  controller: VideoController =controller
 
   getVideoUrl():ResourceStr{
     if(this.videoUrl!=undefined){

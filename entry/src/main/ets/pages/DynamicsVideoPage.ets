@@ -34,8 +34,8 @@ export struct DynamicsVideoPage {
           .onClick(() => {
             this.index++
             let data: VideoData = new VideoData(this.videoSrc, undefined, systemDateTime.getTime(), this.index % 2)
-            replaceBuilderVideo(data, this.getUIContext())
-            //updateBuilderVideo(data)
+            //replaceBuilderVideo(data, this.getUIContext())
+            updateBuilderVideo(data)
           })
           .margin(20)
           .width('100%')
